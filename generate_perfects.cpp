@@ -85,7 +85,7 @@ vector<vector<int>> mersennePrimes(vector<int> primes, int b){
         // 2^n is the same as bit shifting to the left by 1; (2^n) = 1 << n
         //int m = (1 << i) - 1;
         int m = pow(2, i)-1;
-        if(m < b and isPrime(m)) // is m is greater than our limit B, there's no point in including it
+        if(m <= b and isPrime(m)) // is m is greater than our limit B, there's no point in including it
             mersennes.push_back({m, i});
     }
     return mersennes;
