@@ -80,13 +80,16 @@ bool isPrime(int n){
 // Time: O(sqrt(n) * log(n))
 vector<vector<int>> mersennePrimes(vector<int> primes, int b){
     vector<vector<int>> mersennes; // {{mersenne #, n}}
-    for(auto& i : primes){
+    // m = (2^n)-1  <= b; 2^n = b+1; n = log(b+1)/log(2); 
+    int limit = ceil(log(b+1)/log(2));
+    for(auto& p : primes){
+        if(p > limit) break; // if our prime number passes the limit, then the Mersenne value will be greater than B
         // mersenne = ((2^n)-1), as long as n is a prime
         // 2^n is the same as bit shifting to the left by 1; (2^n) = 1 << n
         //int m = (1 << i) - 1;
-        int m = pow(2, i)-1;
+        int m = pow(2, p)-1;
         if(m <= b and isPrime(m)) // is m is greater than our limit B, there's no point in including it
-            mersennes.push_back({m, i});
+            mersennes.push_back({m, p});
     }
     return mersennes;
 }
