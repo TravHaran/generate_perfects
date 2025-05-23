@@ -79,9 +79,8 @@ g++ -std=c++11 generate_perfects.cpp -o out.exe
 
 Running the optimized algorithm from 0 to 100,000 produces output like:
 
-```
 <img width="817" alt="generate_perfect_nums_output" src="https://github.com/user-attachments/assets/47697839-b4e3-4e99-9b6e-7f5bde59b1c3" />
-```
+
 
 - Naïve approach: **~11 seconds**
 - Optimized algorithm: **~0.004 seconds**
