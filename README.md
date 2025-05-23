@@ -1,7 +1,7 @@
 
 # Generating Perfect Numbers
 
-In UWindsor’s **COMP1400 Lab 3**, one of the exercises asked us to generate all **perfect numbers** between a given input range from **A to B**.
+In UWindsor’s **COMP 1400 Lab 3**, one of the exercises asked us to generate all **perfect numbers** between a given input range from **A to B**.
 
 The lab provided pseudocode for a helper function `isPerfect()`, which checks whether a number is perfect. A naïve approach would be to loop through all values from **A to B**, checking each value using this function.
 
