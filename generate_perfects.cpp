@@ -42,8 +42,8 @@ vector<int> naive_algo(int a, int b){
 
 // Optimized Approach
 
-// Generate all prime numbers up to limit N use Sieve of Eratosthenes
-// Time: O(n log(log (n)))
+// Generate all prime numbers up to limit N using Linear Sieve of Eratosthenes
+// Time: O(n)
 vector<int> sieve(int n){
     vector<int> primes;
     vector<bool> is_prime;
@@ -55,11 +55,14 @@ vector<int> sieve(int n){
     for(int j = 2; j < limit; j++){
         if(is_prime[j]){
             primes.push_back(j);
-            // mark all multiples of j starting with j^2 up to n,
-            // since the prime numbers below j would have already
-            // marked everything up to j^2
-            for(int a = j*j; a <= n; a += j)
-                is_prime[a] = false;
+            // mark all the multiples of i with the help of already found primes
+            for(int p : primes){
+                if(j * p > n) break; // stop if the product exceeds n
+                is_prime[j*p] = false;
+                // if p divides i, then p is the smallest prime factor of i,
+                // and any further multiples would be marked by smaller factors.
+                if(j % p == 0) break;
+            }
         }
     }
 
@@ -140,7 +143,8 @@ int main(){
 
     // Naive Algo
     auto start = chrono::high_resolution_clock::now();
-    perfs_naive = naive_algo(a, b);
+    perfs_naive = naive_algo(a, b); // comment out for large ranges where naive times out
+    // perfs_naive = {}; // uncomment to only test out optimized algo for large ranges as naive algo times out
     auto stop = chrono::high_resolution_clock::now();
 
     // Optimized Algo
