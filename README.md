@@ -47,12 +47,12 @@ This quadratic time becomes infeasible for large ranges.
 To solve this more efficiently, I used **number theory** — specifically:
 
 - **Mersenne Primes**
-- **Sieve of Eratosthenes** (a classic prime number generator used in cryptography)
+- ** Linear Sieve of Eratosthenes** (a classic prime number generator used in cryptography)
 
 Using this method, the time complexity drops to:
 
 ```
-O(n * log(log(n)))
+O(n)
 ```
 
 Which is **dramatically faster** than O(n²) for large input sizes.
@@ -79,11 +79,10 @@ g++ -std=c++11 generate_perfects.cpp -o out.exe
 
 Running the code to generate perfect numbers from 0 to 100,000, produces an output as shown below:
 
-<img width="817" alt="generate_perfect_nums_output" src="https://github.com/user-attachments/assets/47697839-b4e3-4e99-9b6e-7f5bde59b1c3" />
+<img width="813" alt="generate_perfect_nums_output" src="https://github.com/user-attachments/assets/032ef2c8-f120-4bbc-90be-ba841f42440c" />
 
-
-- Naïve approach: **~11 seconds**
-- Optimized algorithm: **~0.004 seconds**
+- Naïve approach: **~9.6 seconds**
+- Optimized algorithm: **~0.002 seconds**
 
 ---
 
