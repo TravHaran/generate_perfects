@@ -77,7 +77,7 @@ g++ -std=c++11 generate_perfects.cpp -o out.exe
 
 ## 📸 Sample Output
 
-Running the optimized algorithm from 0 to 100,000 produces output like:
+Running the code to generate perfect numbers from 0 to 100,000, produces an output as shown below:
 
 <img width="817" alt="generate_perfect_nums_output" src="https://github.com/user-attachments/assets/47697839-b4e3-4e99-9b6e-7f5bde59b1c3" />
 
